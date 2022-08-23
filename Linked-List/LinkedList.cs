@@ -65,6 +65,20 @@
             size++;
         }
 
+        public void AddAnyWhere(int e , int position)
+        {
+            Node newest = new Node(e,null);
+            Node runner = head;
+            int i= 1;
+            while(i<position-1)
+            {
+                runner=runner.next;
+                i++;
+            }
+            newest.next = runner.next;
+            runner.next = newest;
+        }
+
         public void display() 
         {
             Node runner = head;
@@ -81,17 +95,17 @@
         {
             Console.WriteLine("-----------------------Linked List-------------------");
             LinkedList linkedList = new LinkedList();
-            //linkedList.addLast(7);
-            //linkedList.addLast(8);
-            //linkedList.addLast(9);
-            //linkedList.addLast(10);
-            //linkedList.addLast(11);
-            //linkedList.addLast(12);
-            //linkedList.addLast(13);
-            //linkedList.addLast(14);
-            //linkedList.addLast(14);
-
-            linkedList.addFirst(3456);
+            linkedList.addLast(7);
+            linkedList.addLast(8);
+            linkedList.addLast(9);
+            linkedList.addLast(10);
+            linkedList.addLast(11);
+            linkedList.addLast(12);
+            linkedList.addLast(13);
+            linkedList.addLast(14);
+            linkedList.addLast(14);
+            //linkedList.addFirst(3456);
+            linkedList.AddAnyWhere(45, 4);
             Console.WriteLine("The length of liked list : "+linkedList.Length());
             linkedList.display();
         }
