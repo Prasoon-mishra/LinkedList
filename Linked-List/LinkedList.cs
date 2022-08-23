@@ -104,6 +104,25 @@
                 return ;
             }
         }
+
+        public void RemoveLast()
+        {
+            if(isEmpty())
+            {
+                Console.WriteLine("List is empty");
+                return ;
+            }
+            Node runner = head;
+            int i = 1;
+            while(i<Length()-1)
+            {
+                runner= runner.next;
+                i++;
+            }
+            tail = runner;
+            runner.next = null;
+            size--;
+        }
         public void display() 
         {
             Node runner = head;
@@ -131,8 +150,12 @@
             linkedList.addLast(14);
             //linkedList.addFirst(3456);
             //linkedList.AddAnyWhere(45, 5);
-            linkedList.RemoveFirst();
+            //linkedList.RemoveFirst();
+            linkedList.RemoveLast();
             Console.WriteLine("The length of liked list : "+linkedList.Length());
+            linkedList.display();
+            linkedList.RemoveLast();
+            Console.WriteLine("The length of liked list : " + linkedList.Length());
             linkedList.display();
         }
     }
