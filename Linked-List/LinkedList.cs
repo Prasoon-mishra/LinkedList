@@ -121,6 +121,8 @@
             }
             tail = runner;
             runner.next = null;
+            int e = runner.element;
+            tail.next = null; 
             size--;
         }
         public void display() 
