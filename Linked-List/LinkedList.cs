@@ -49,14 +49,31 @@
             size++;
         }
 
+        public void addFirst(int e)
+        {
+            Node newest = new Node(e, null);
+            if(isEmpty())
+            {
+                head=newest;
+                tail=newest;
+            }
+            else
+            {
+                newest.next = head;
+                head = newest;
+            }
+            size++;
+        }
+
         public void display() 
         {
-            Node p = head;
-            while(p.next != null)
+            Node runner = head;
+            while(runner.next != null)
             {
-                p = p.next;
-                Console.Write(p.element+" --> ");
+                Console.Write(runner.element + " --> ");
+                runner = runner.next;
             }
+            Console.WriteLine(runner.element);
             Console.WriteLine();
         }
 
@@ -64,14 +81,18 @@
         {
             Console.WriteLine("-----------------------Linked List-------------------");
             LinkedList linkedList = new LinkedList();
-            linkedList.addLast(7);
-            linkedList.addLast(8);
-            linkedList.addLast(9);
-            linkedList.addLast(10);
-            linkedList.addLast(11);
-            linkedList.addLast(12);
-            linkedList.addLast(13);
-            linkedList.addLast(14);
+            //linkedList.addLast(7);
+            //linkedList.addLast(8);
+            //linkedList.addLast(9);
+            //linkedList.addLast(10);
+            //linkedList.addLast(11);
+            //linkedList.addLast(12);
+            //linkedList.addLast(13);
+            //linkedList.addLast(14);
+            //linkedList.addLast(14);
+
+            linkedList.addFirst(3456);
+            Console.WriteLine("The length of liked list : "+linkedList.Length());
             linkedList.display();
         }
     }
