@@ -67,16 +67,24 @@
 
         public void AddAnyWhere(int e , int position)
         {
-            Node newest = new Node(e,null);
-            Node runner = head;
-            int i= 1;
-            while(i<position-1)
+            if(position <=0 || position >= size)
             {
-                runner=runner.next;
-                i++;
+                Console.WriteLine("Invalid Position");
+                return;
             }
-            newest.next = runner.next;
-            runner.next = newest;
+            else
+            {
+                Node newest = new Node(e, null);
+                Node runner = head;
+                int i = 1;
+                while (i < position - 1)
+                {
+                    runner = runner.next;
+                    i++;
+                }
+                newest.next = runner.next;
+                runner.next = newest;
+            }
         }
 
         public void display() 
@@ -105,7 +113,7 @@
             linkedList.addLast(14);
             linkedList.addLast(14);
             //linkedList.addFirst(3456);
-            linkedList.AddAnyWhere(45, 4);
+            linkedList.AddAnyWhere(45, 5);
             Console.WriteLine("The length of liked list : "+linkedList.Length());
             linkedList.display();
         }
