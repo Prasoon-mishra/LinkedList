@@ -105,25 +105,46 @@
             }
         }
 
-        public void RemoveLast()
+        public int RemoveLast()
         {
             if(isEmpty())
             {
                 Console.WriteLine("List is empty");
-                return ;
+                return -1 ;
             }
             Node runner = head;
             int i = 1;
-            while(i<Length()-1)
+            while(i<size-1)
             {
                 runner= runner.next;
                 i++;
             }
             tail = runner;
-            runner.next = null;
+            runner = runner.next;
             int e = runner.element;
             tail.next = null; 
             size--;
+            return e;
+        }
+        public int RemoveAnyWhere(int position)
+        {
+            if (position <= 0 || position >= size)
+            {
+                Console.WriteLine("Invalid Position");
+                return -1;
+            }
+            Node runner = head;
+            int i = 1;
+            while(i<position-1)
+            {
+                runner = runner.next;
+                i++;
+            }
+            int e = runner.next.element;
+            runner.next = runner.next.next;
+            size--;
+            return e;
+
         }
         public void display() 
         {
@@ -150,13 +171,15 @@
             linkedList.addLast(13);
             linkedList.addLast(14);
             linkedList.addLast(14);
+            linkedList.RemoveAnyWhere(4);
             //linkedList.addFirst(3456);
             //linkedList.AddAnyWhere(45, 5);
             //linkedList.RemoveFirst();
-            linkedList.RemoveLast();
-            Console.WriteLine("The length of liked list : "+linkedList.Length());
+            //linkedList.RemoveLast();
+            //Console.WriteLine("The length of liked list : "+linkedList.Length());
             linkedList.display();
-            linkedList.RemoveLast();
+            //int el=linkedList.RemoveLast();
+           // Console.WriteLine("deleted node is: "+el);
             Console.WriteLine("The length of liked list : " + linkedList.Length());
             linkedList.display();
         }
